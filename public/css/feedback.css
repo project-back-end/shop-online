@@ -1,0 +1,74 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:700);
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Lato", sams-serif;
+    font-weight: 700;
+
+}
+.switcher {
+    overflow: hidden;
+}
+
+.switcher input[type="radio"]:checked + label {
+    color: #585858;
+}
+
+.switcher label {
+    color: #8b8b8b;
+}
+
+.switcher input {
+    display: none;
+}
+
+.switcher input[type="radio"]:checked + label {
+    border-bottom: 0.11em solid #bebebe;
+    border-top: 0.25em solid #d8d8d8;
+    -moz-box-shadow: rgba(190, 190, 190, 0.25) 0 0 12px -2px inset, rgba(195, 195, 195, 0.25) 0 0 3px 3px inset;
+    -webkit-box-shadow: rgba(190, 190, 190, 0.25) 0 0 12px -2px inset, rgba(195, 195, 195, 0.25) 0 0 3px 3px inset;
+    box-shadow: rgba(190, 190, 190, 0.25) 0 0 12px -2px inset, rgba(195, 195, 195, 0.25) 0 0 3px 3px inset;
+}
+
+.switcher .switcher-item {
+    float: left;
+}
+
+.switcher .switcher-item label {
+    background: #f1f1f1;
+    display: inline-block;
+    padding: 0.5em 1em;
+    border: 0.11em solid #c6c6c6;
+    border-left: 0 none;
+    border-bottom: 0.25em solid #c6c6c6;
+    font-weight: bold;
+}
+
+.switcher .switcher-item label:hover {
+    cursor: pointer;
+}
+
+.switcher .switcher-item:first-child label {
+    -moz-border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px 0 0 4px;
+    border-left: 0.11em solid #c6c6c6;
+}
+
+.switcher .switcher-item:last-child label {
+    -moz-border-radius: 0 4px 4px 0;
+    -webkit-border-radius: 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #d5d5d5;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 99, 197, 0);
+}
