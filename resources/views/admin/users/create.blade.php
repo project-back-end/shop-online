@@ -22,42 +22,64 @@
 
     {!! Form::open(array('route' => 'admin.users.store','method'=>'POST')) !!}
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Name:</strong>
-                {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Email:</strong>
-                {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Password:</strong>
-                {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Confirm Password:</strong>
-                {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Role:</strong>
-                {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 text-right">
-            <a class="btn btn-success" href="{{ route('admin.users') }}"> Back</a>
-            <button type="submit" class="btn btn-success">Submit</button>
+        <div class="col-md-6 col-xs-12 col-sm-12">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Name:</strong>
+                        {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Email:</strong>
+                        {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <strong>Password:</strong>
+                                {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control' , 'id'=>'password')) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="checkbox" id="checkbox" placeholder="">Show Password
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Confirm Password:</strong>
+                        {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Role:</strong>
+                        {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 text-right">
+                    <a class="btn btn-success" href="{{ route('admin.users') }}"> Back</a>
+                    <button type="submit" class="btn btn-success">Submit</button>
 
+                </div>
+            </div>
         </div>
     </div>
     {!! Form::close() !!}
 
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function(){
+            $('#checkbox').on('change', function(){
+                $('#password').attr('type',$('#checkbox').prop('checked')==true?"text":"password");
+            });
+        });
+    </script>
+    @endpush

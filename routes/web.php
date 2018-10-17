@@ -63,6 +63,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function (){
     Route::get('products/edit/{id}','ProductController@edit')->name('products.edit');
     Route::patch('products/update/{id}','ProductController@update')->name('products.update');
     Route::DELETE('products/delete/{id}','ProductController@destroy')->name('products.destroy');
+
+    //
 });
 
 //facebook socialite
@@ -86,5 +88,4 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function (){
 
     Route::get('/addpage',function (){
         return view('addpage');
-
     });
