@@ -17,13 +17,13 @@ class CreateProductsTable extends Migration
             $table->increments('id');
 
             $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->unsignedInteger('cat_id')->nullable();
-            $table->foreign('cat_id')->references('id')->on('categories');
+            $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
 
             $table->unsignedInteger('st_id')->nullable();
-            $table->foreign('st_id')->references('id')->on('stores');
+            $table->foreign('st_id')->references('id')->on('stores')->onDelete('cascade');
 
             $table->string('name')->nullable();
             $table->text('description')->nullable();
@@ -35,8 +35,6 @@ class CreateProductsTable extends Migration
             $table->date('end_date')->format('d-m-Y')->nullable();
             $table->date('start_date')->format('d-m-Y')->nullable();
             $table->boolean('exclusive_coupon')->nullable();
-            $table->integer('view')->default('0');
-//            $table->enum('validate', array('expire', 'display', 'no_expire'));
             $table->string('slug')->nullable();
             $table->timestamps();
         });

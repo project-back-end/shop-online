@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExpireTable extends Migration
+class CreateSaveTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateExpireTable extends Migration
      */
     public function up()
     {
-        Schema::create('expire', function (Blueprint $table) {
+        Schema::create('save', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('pro_id');
-            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ class CreateExpireTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('expire');
+        Schema::dropIfExists('save');
     }
 }
