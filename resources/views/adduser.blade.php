@@ -1,45 +1,23 @@
 @include('admin.partials.head')
 
-<head>
-    <style>
-        .img{
-            max-width:180px;
-            max-height:180px;
-        }
-        .adduser{
-            border-radius: 5px;
-            outline: none;
-            background-color: #327CCB;
-            border-color: transparent;
-            color: white;
-        }
-
-    </style>
-</head>
-
 <div class="container">
     <div class="row">
         <div class="col-md-10 offset-2">
             <form>
-                <h4>Add New User</h4>
-                <p>Creare a brand new user and add them to this site.</p>
-
- {{--username               --}}
-
                 <div class="form-group row">
-                    <label  class="col-sm-4 col-form-label">Username(Required)</label>
+                    <label  class="col-sm-4 col-form-label">Username <span>( Required )</span></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" id="username">
                     </div>
                 </div>
-  {{--Email              --}}
+                {{--Email              --}}
                 <div class="form-group row">
-                    <label  class="col-sm-4 col-form-label">Email(Required)</label>
+                    <label  class="col-sm-4 col-form-label">Email <span>( Required )</span></label>
                     <div class="col-sm-6">
                         <input type="email" class="form-control" id="email" >
                     </div>
                 </div>
-    {{--firstname            --}}
+                {{--firstname            --}}
                 <div class="form-group row">
                     <label  class="col-sm-4 col-form-label">First Namae</label>
                     <div class="col-sm-6">
@@ -60,16 +38,26 @@
                         <input type="text" class="form-control" id="webiste">
                     </div>
                 </div>
+                {{--password--}}
 
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Password</label>
-                    <div class="col-sm-3">
-                        <input type="button" class="form-control" id="pwd" value="Show Password">
+
+                    <div class="col-sm-6">
+                        <div class="input-group mb-3">
+                            <input id="password-field" type="password" class="form-control" name="password">
+                            <div class="input-group-append">
+                                <span class="input-group-text fa-icon fa-fw fa-eye toggle-password" toggle="#password-field ">
+                                </span>
+                            </div>
+                        </div>
+
+                        {{--<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>--}}
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Send User Notification</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 col-form-label">
                         <input type="checkbox"  id="notification" value="yes" >
                         <span >Send the new user the email about their account</span>
                     </div>
@@ -120,4 +108,16 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+</script>
+<script>
+    $(".toggle-password").click(function() {
+
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") == "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    });
 </script>

@@ -163,3 +163,33 @@ img{
 .service-breadcrumbs {
     padding: 0 5px;
 }
+/*User*/
+.field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+}
+.adduser{
+    border-radius: 5px;
+    outline: none;
+    background-color: #327CCB;
+    border-color: transparent;
+    color: white;
+}
+.img{
+    max-width:180px;
+    max-height:180px;
+}
+.require{
+    color: red;
+}
+.fa-icon{
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    padding: 10px 30px 10px 15px;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}

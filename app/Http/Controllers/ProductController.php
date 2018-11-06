@@ -24,10 +24,10 @@ class ProductController extends Controller
      */
     function __construct()
     {
-//         $this->middleware('permission:product-list');
-//         $this->middleware('permission:product-create', ['only' => ['create','store']]);
-//         $this->middleware('permission:product-edit', ['only' => ['edit','update']]);
-//         $this->middleware('permission:product-delete', ['only' => ['destroy']]);
+         $this->middleware('permission:product-list');
+         $this->middleware('permission:product-create', ['only' => ['create','store']]);
+         $this->middleware('permission:product-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:product-delete', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.
@@ -87,7 +87,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $date=Carbon::now()->format('Y-m-d');
+//        $date=Carbon::now()->format('Y-m-d');
 //        dd($date);
         $product = $request->all();
         if ($request->get('type') == 'deal'){
@@ -102,8 +102,7 @@ class ProductController extends Controller
                         'url' => 'required|url'
                     ]);
                     $product['start_date'] = Carbon::now()->toDateString();
-                }
-                else{
+                }else{
                     $product['start_date'] = $request->get('start_date');
                     $this->validate($request,[
                         'name' => 'required',
@@ -113,8 +112,7 @@ class ProductController extends Controller
                     ]);
                 }
 
-            }
-            else{
+            }else{
                 $this->validate($request,[
                     'name' => 'required',
                     'description' => 'required',
@@ -124,7 +122,8 @@ class ProductController extends Controller
                 $product['end_date'] = $request->get('end_date');
                 if ($request->get('start_date') == null){
                     $product['start_date'] = Carbon::now()->format('Y-m-d');
-                }else{
+                }
+                else{
                     $product['start_date'] = $request->get('start_date');
                     $this->validate($request,[
                         'name' => 'required',

@@ -154,21 +154,17 @@ class StoreController extends Controller
         }
         if ($request->get('slug')== null){
             $input['slug'] = str_slug($request->get('name'),'-');
-        }
-        else{
+        }else{
             $input['slug']= $request->get('slug');
         }
-
         if ($request->get('feature_store') == null){
             $input['feature_store'] = '0';
-        }
-        else{
+        }else{
             $input['feature_store'] =  $request->get('feature_store');
         }
         if ($request->get('country') == null){
             $input['country']= 'Cambodia';
-        }
-        else{
+        }else{
             $input['country']= $request->get('country');
         }
         $stores->update($input);

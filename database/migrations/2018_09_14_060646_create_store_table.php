@@ -38,7 +38,6 @@ class CreateStoreTable extends Migration
             $table->string('url_instagram')->nullable();
             $table->string('url_linked')->nullable();
             $table->string('url_website')->nullable();
-
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
